@@ -80,12 +80,13 @@ $color--tertiary: #d39a45;
         color: #fff;
         letter-spacing: 0.1rem;
 
-        a {
+        span {
           color: #fff;
           text-decoration: none;
           position: relative;
           border-bottom: 1px solid $color--tertiary;
           padding-bottom: 2px;
+          cursor: pointer;
         }
       }
     }

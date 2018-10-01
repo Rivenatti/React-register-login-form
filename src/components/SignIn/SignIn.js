@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../styles/style.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 class Form extends Component {
   state = {
     firstName: null,
@@ -28,12 +27,7 @@ class Form extends Component {
         <form onSubmit={this.onSubmit}>
           {/* INPUT ROW */}
           <div className="form__input">
-            <input
-              type="email"
-              name="email"
-              required
-              onChange={this.onChange}
-            />
+            <input type="text" name="email" required onChange={this.onChange} />
             <label htmlFor="email">E-mail address</label>
           </div>
           {/* INPUT ROW */}
@@ -51,7 +45,7 @@ class Form extends Component {
           <input type="submit" value="ENTER" />
         </form>
         <div className="registered">
-          <a href="#">Create an account</a>
+          <NavLink to="/sign-up">Create an account</NavLink>
         </div>
       </div>
     );

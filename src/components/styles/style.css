@@ -83,12 +83,13 @@
   letter-spacing: 0.1rem;
 }
 
-.form__input__agreement label a {
+.form__input__agreement label span {
   color: #fff;
   text-decoration: none;
   position: relative;
   border-bottom: 1px solid #d39a45;
   padding-bottom: 2px;
+  cursor: pointer;
 }
 
 .form input:invalid {

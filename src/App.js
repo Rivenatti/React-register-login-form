@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 
@@ -10,6 +10,12 @@ class App extends Component {
         firstName: "marcin",
         lastName: "s",
         password: "marcin",
+        email: "m@s.pl"
+      },
+      {
+        firstName: "marcin",
+        lastName: "s",
+        password: "marcins",
         email: "m@s.pl"
       }
     ]
@@ -24,20 +30,27 @@ class App extends Component {
   };
 
   checkUser = user => {
-    this.state.users.filter(person => {
-      person.email === user.email && person.password === user.password
-        ? alert("logged in")
-        : alert("not match");
+    this.state.users.every(person => {
+      return person.email === user.email && person.password === user.password
+        ? alert("Success")
+        : alert("Error");
     });
   };
 
   render() {
-    // console.log(this.state);
     return (
-      <div className="App">
-        <SignIn checkUser={this.checkUser} />
-        {/* <SignUp addUser={this.addUser} /> */}
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <SignIn checkUser={this.checkUser} />
+            </Route>
+            <Route path="/sign-up">
+              <SignUp addUser={this.addUser} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { NavLink, Redirect } from "react-router-dom";
 import "../styles/style.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Form extends Component {
   state = {
@@ -19,6 +19,7 @@ class Form extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.props.addUser(this.state);
+    return <Redirect to="/" />;
   };
 
   render() {
@@ -58,26 +59,21 @@ class Form extends Component {
           </div>
           {/* INPUT ROW */}
           <div className="form__input">
-            <input
-              type="email"
-              name="email"
-              required
-              onChange={this.onChange}
-            />
+            <input type="text" name="email" required onChange={this.onChange} />
             <label htmlFor="email">Email</label>
           </div>
           {/* INPUT ROW */}
           <div className="form__input__agreement">
             <input type="checkbox" name="agreement" id="agreement" required />
             <label htmlFor="agreement">
-              I agree all statements in <a href="#">terms of service</a>
+              I agree all statements in <span>terms of service</span>
             </label>
           </div>
           {/* SUBMIT */}
           <input type="submit" value="JOIN" />
         </form>
         <div className="registered">
-          <a href="#">Already registered</a>
+          <NavLink to="/">Already registered</NavLink>
         </div>
       </div>
     );
