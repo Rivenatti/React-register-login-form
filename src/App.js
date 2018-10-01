@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <p className="App-intro">Get starteds</p>
+        <SignUp />
       </div>
     );
   }
