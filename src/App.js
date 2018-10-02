@@ -5,36 +5,38 @@ import SignUp from "./components/SignUp/SignUp";
 
 class App extends Component {
   state = {
-    users: [
-      {
-        firstName: "marcin",
-        lastName: "s",
-        password: "marcin",
-        email: "m@s.pl"
-      },
-      {
-        firstName: "marcin",
-        lastName: "s",
-        password: "marcins",
-        email: "m@s.pl"
-      }
-    ]
+    users: []
   };
 
   addUser = user => {
-    const newUserList = [...this.state.users, user];
-    this.setState({
-      users: newUserList
+    const userExists = this.state.users.filter(person => {
+      return person.email === user.email && person.password === user.password;
     });
-    alert("User has ben saved in the state.");
+
+    if (userExists.length === 0) {
+      const newUserList = [...this.state.users, user];
+      this.setState({
+        users: newUserList
+      });
+      alert("User has ben saved in the state.");
+    } else {
+      alert("Such user already exists.");
+    }
   };
 
   checkUser = user => {
-    this.state.users.every(person => {
-      return person.email === user.email && person.password === user.password
-        ? alert("Success")
-        : alert("Error");
+    const attempt = this.state.users.filter(person => {
+      return (
+        person.email.toLowerCase() === user.email.toLowerCase() &&
+        person.password === user.password
+      );
     });
+
+    if (attempt.length === 1) {
+      alert("Signed in successfully");
+    } else {
+      alert("Sign in failed, try again.");
+    }
   };
 
   render() {

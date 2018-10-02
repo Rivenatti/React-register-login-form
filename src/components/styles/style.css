@@ -1,9 +1,5 @@
 .form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  margin: 0 auto;
   width: 100%;
   padding: 4rem;
   background: #01193f;
@@ -68,12 +64,12 @@
 
 .form__input__agreement {
   width: 100%;
-  padding: 1rem 0;
   font-size: 1.6rem;
   color: #fff;
   letter-spacing: 0.1rem;
   outline: none;
   background: transparent;
+  text-align: center;
 }
 
 .form__input__agreement label {
@@ -90,6 +86,21 @@
   border-bottom: 1px solid #d39a45;
   padding-bottom: 2px;
   cursor: pointer;
+}
+
+.form__input span {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #ff4949;
+  font-size: 1.15rem;
+  width: 100%;
+}
+
+.form .mt-20 {
+  margin-top: 2rem;
 }
 
 .form input:invalid {
@@ -130,6 +141,7 @@
 
 @media only screen and (min-width: 480px) {
   .form {
+    top: 50%;
     width: 97%;
     border-radius: 1rem;
   }
@@ -137,6 +149,7 @@
 
 @media only screen and (min-width: 768px) {
   .form {
+    margin-top: calc((100vh - 72rem) / 2);
     width: 60%;
   }
 }

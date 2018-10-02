@@ -3,10 +3,8 @@ import "../styles/style.css";
 import { NavLink } from "react-router-dom";
 class Form extends Component {
   state = {
-    firstName: null,
-    lastName: null,
-    password: null,
-    email: null
+    password: "",
+    email: ""
   };
 
   onChange = e => {
@@ -27,8 +25,15 @@ class Form extends Component {
         <form onSubmit={this.onSubmit}>
           {/* INPUT ROW */}
           <div className="form__input">
-            <input type="text" name="email" required onChange={this.onChange} />
+            <input
+              type="text"
+              name="email"
+              required
+              onChange={this.onChange}
+              autoComplete="off"
+            />
             <label htmlFor="email">E-mail address</label>
+            <span className="error">{this.state.emailError}</span>
           </div>
           {/* INPUT ROW */}
           <div className="form__input">
@@ -37,6 +42,7 @@ class Form extends Component {
               name="password"
               required
               onChange={this.onChange}
+              autoComplete="off"
             />
             <label htmlFor="password">Password</label>
           </div>
