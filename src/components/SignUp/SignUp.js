@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect, withRouter } from "react-router-dom";
 import "../styles/style.css";
 
 class Form extends Component {
@@ -13,7 +13,8 @@ class Form extends Component {
     confirmPassword: "",
     confirmPasswordError: "",
     email: "",
-    emailError: ""
+    emailError: "",
+    fireRedirect: false
   };
 
   validate(input) {
@@ -131,8 +132,9 @@ class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.addUser(this.state);
-    return <Redirect to="/" />;
+    this.props.addUser(this.state)
+      ? this.setState({ fireRedirect: true })
+      : null;
   };
 
   render() {
@@ -214,6 +216,7 @@ class Form extends Component {
         <div className="registered">
           <NavLink to="/">Already registered</NavLink>
         </div>
+        {this.state.fireRedirect && <Redirect to={"/"} />}
       </div>
     );
   }

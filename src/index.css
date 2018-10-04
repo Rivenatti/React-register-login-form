@@ -9,9 +9,6 @@
 
 html {
   font-size: 10px;
-  background: #1488cc;
-  background: -webkit-linear-gradient(to left, #2b32b2, #1488cc);
-  background: linear-gradient(to left, #2b32b2, #1488cc);
 }
 
 body {
@@ -19,4 +16,7 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   width: 100%;
+  background: #1488cc;
+  background: -webkit-linear-gradient(to left, #2b32b2, #1488cc);
+  background: linear-gradient(to left, #2b32b2, #1488cc);
 }

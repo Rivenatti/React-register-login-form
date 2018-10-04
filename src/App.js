@@ -10,7 +10,7 @@ class App extends Component {
 
   addUser = user => {
     const userExists = this.state.users.filter(person => {
-      return person.email === user.email && person.password === user.password;
+      return person.email === user.email;
     });
 
     if (userExists.length === 0) {
@@ -18,9 +18,11 @@ class App extends Component {
       this.setState({
         users: newUserList
       });
-      alert("User has ben saved in the state.");
+      alert("User has ben saved in the state. You can sign in now.");
+      return true;
     } else {
       alert("Such user already exists.");
+      return false;
     }
   };
 
