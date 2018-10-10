@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
+import NotFound from "./components/NotFound/NotFound";
 
 class App extends Component {
   state = {
@@ -52,6 +53,7 @@ class App extends Component {
             <Route path="/sign-up">
               <SignUp addUser={this.addUser} />
             </Route>
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Redirect, withRouter } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import "../styles/style.css";
 
 class Form extends Component {
@@ -132,7 +132,7 @@ class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.addUser(this.state)
+    return this.props.addUser(this.state)
       ? this.setState({ fireRedirect: true })
       : null;
   };
