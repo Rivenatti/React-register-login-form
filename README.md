@@ -10,3 +10,6 @@ Registration form has a validation script which was created using regular expres
 
 * Start the development server with
 > npm start
+
+#
+The replication, conversion, duplication or divulgement of the whole application in order to benefit from it in any way is prohibited without the author's permission.
