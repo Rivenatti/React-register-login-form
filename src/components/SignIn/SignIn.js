@@ -7,12 +7,14 @@ class Form extends Component {
     email: ""
   };
 
+  // ON INPUT CHANGE SET THE NEW STATE
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
+  // ON SUBMIT SEND THIS STATE TO THE APP COMPONENT
   onSubmit = e => {
     e.preventDefault();
     this.props.checkUser(this.state);

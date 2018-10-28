@@ -9,11 +9,15 @@ class App extends Component {
     users: []
   };
 
+  // ADD USER TO STATE METHOD
   addUser = user => {
+    // CHECK IF SUCH USER EMAIL ALREADY EXISTS
     const userExists = this.state.users.filter(person => {
       return person.email === user.email;
     });
 
+    // IF FILTER METHOD DOESN'T RETURN ANY USER EMAIL, THEN SAVE NEW USER IN THE STATE,
+    // ELSE DISPLAY ERROR
     if (userExists.length === 0) {
       const newUserList = [...this.state.users, user];
       this.setState({
@@ -27,6 +31,7 @@ class App extends Component {
     }
   };
 
+  // CHECK IF SIGNING IN USER EXISTS
   checkUser = user => {
     const attempt = this.state.users.filter(person => {
       return (
@@ -35,6 +40,7 @@ class App extends Component {
       );
     });
 
+    // DISPLAY APPRORIATE ALERT TO THE USER
     if (attempt.length === 1) {
       alert("Signed in successfully");
     } else {

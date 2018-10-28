@@ -17,6 +17,7 @@ class Form extends Component {
     fireRedirect: false
   };
 
+  // VALIDATE INPUTS WITH REGEX
   validate(input) {
     const name = input.target.name;
     const value = input.target.value;
@@ -126,10 +127,14 @@ class Form extends Component {
     }
   }
 
+  // ON INPUT CHANGE VALIDATE THE VALUE
   onChange = e => {
     this.validate(e);
   };
 
+  // ON SUBMIT CHECK IF GIVEN DATA IS VALID, THEN SEND THE STATE TO
+  // APP COMPONENT AND REDIRECT TO SIGN IN PAGE
+  // ELSE DON'T DO ANYTHING
   onSubmit = e => {
     e.preventDefault();
     return this.props.addUser(this.state)
